@@ -4,13 +4,13 @@ abbort = "n"
 aufgabenGesamt = 0;
 aufgabenRichtig = 0;
 
-def addition():
+def addition(hoechstwert):
 	first = 0
 	second = 0
-	sollErgebnis = 101
+	sollErgebnis = hoechstwert + 1
 	while sollErgebnis > 100:
-		first = random.randint(1,100)
-		second = random.randint(1,100)
+		first = random.randint(1,hoechstwert)
+		second = random.randint(1,hoechstwert)
 		sollErgebnis = first + second
 	print("Bitte rechne " + str(first) + " + " + str(second))
 	print("Ergebnis: ")
@@ -28,9 +28,9 @@ def addition():
 		print("Das richtige Ergebnis lautet: " + str(sollErgebnis))
 		print("")
 
-def subtraktion():
-	first = random.randint(1, 100)
-	second = random.randint(1,100)
+def subtraktion(hoechstwert):
+	first = random.randint(1, hoechstwert)
+	second = random.randint(1,hoechstwert)
 	if first > second:
 		print("Bitte rechne " + str(first) + " - " + str(second))
 		print("Erghebnis: ")
@@ -65,13 +65,19 @@ def subtraktion():
 			print("Schade, das Ergebnis ist leider falsch!")
 			print("Das richtige Ergebnis lautet: " + str(sollErgebnis))
 			print("")
+			
+print("Bitte gebe den Maximalwert ein!")
+try:
+	hoechstwert = int(input())
+except ValueError:
+	abbort = "j"
 
 while abbort != "j":
 	rechnung = random.randint(1,2)
 	
 	if rechnung == 1:
-		addition()
+		addition(hoechstwert)
 	else:
-		subtraktion()
+		subtraktion(hoechstwert)
 
 
