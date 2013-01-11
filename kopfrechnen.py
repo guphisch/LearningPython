@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 import random
+
+random.seed()
 abbort = "n"
 aufgabenGesamt = 0;
 aufgabenRichtig = 0;
@@ -12,60 +14,55 @@ def addition(hoechstwert):
 		first = random.randint(1,hoechstwert)
 		second = random.randint(1,hoechstwert)
 		sollErgebnis = first + second
-	print("Bitte rechne " + str(first) + " + " + str(second))
+	print("Bitte rechne %s + %s" %(str(first), str(second)))
 	print("Ergebnis: ")
 	try:
 		istErgebnis = int(input())
 	except ValueError:
-		global abbort
-		abbort = "j"
-		return
+		return "j"
 	if istErgebnis == sollErgebnis:
 		print("Super, das Ergebnis ist richtig!")
 		print("")
 	else:
 		print("Schade, das Ergebnis ist leider falsch!")
-		print("Das richtige Ergebnis lautet: " + str(sollErgebnis))
+		print("Das richtige Ergebnis lautet: %s" %str(sollErgebnis))
 		print("")
 
 def subtraktion(hoechstwert):
 	first = random.randint(1, hoechstwert)
 	second = random.randint(1,hoechstwert)
 	if first > second:
-		print("Bitte rechne " + str(first) + " - " + str(second))
+		print("Bitte rechne %s - %s" %(str(first), str(second)))
 		print("Erghebnis: ")
 		try:
 			istErgebnis = int(input())
 		except ValueError:
-			global abbort
-			abbort = "j"
-			return
+			return "j"
 		sollErgebnis = first - second
 		if istErgebnis == sollErgebnis:
 			print("Super, das Ergebnis ist richtig!")
 			print("")
 		else:
 			print("Schade, das Ergebnis ist leider falsch!")
-			print("Das richtige Ergebnis lautet: " + str(sollErgebnis))
+			print("Das richtige Ergebnis lautet: %s"  %str(sollErgebnis))
 			print("")
 	else:
-		print("Bitte rechne " + str(second) + " - " + str(first))
+		print("Bitte rechne %s - %s"  %(str(second),str(first)))
 		print("Ergebins: ")
 		try:
 			istErgebnis = int(input())
 		except ValueError:
 			global abbort
-			abbort = "j"
-			return
+			return "j"
 		sollErgebnis = second - first
 		if istErgebnis == sollErgebnis:
 			print("Super, das Ergebins ist richtig!")
 			print("")
-		else:	 
+		else:
 			print("Schade, das Ergebnis ist leider falsch!")
-			print("Das richtige Ergebnis lautet: " + str(sollErgebnis))
+			print("Das richtige Ergebnis lautet: %s" %str(sollErgebnis))
 			print("")
-			
+
 print("Bitte gebe den Maximalwert ein!")
 try:
 	hoechstwert = int(input())
@@ -74,10 +71,10 @@ except ValueError:
 
 while abbort != "j":
 	rechnung = random.randint(1,2)
-	
+
 	if rechnung == 1:
-		addition(hoechstwert)
+		abbort = addition(hoechstwert)
 	else:
-		subtraktion(hoechstwert)
+		abbort = subtraktion(hoechstwert)
 
 
