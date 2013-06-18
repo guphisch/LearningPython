@@ -10,7 +10,7 @@ def addition(hoechstwert):
 	first = 0
 	second = 0
 	sollErgebnis = hoechstwert + 1
-	while sollErgebnis > 100:
+	while sollErgebnis > hoechstwert:
 		first = random.randint(1,hoechstwert)
 		second = random.randint(1,hoechstwert)
 		sollErgebnis = first + second
